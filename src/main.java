@@ -46,7 +46,7 @@ public class main {
                                     nbTours = nbTours+1;
                                 }
                                 else{
-                                    System.out.print("choix invalide");
+                                    System.out.print("choix invalide\n");
                                 }
                             }
                         }
@@ -62,7 +62,7 @@ public class main {
                                     nbTours = nbTours+1;
                                 }
                                 else{
-                                    System.out.print("choix invalide");
+                                    System.out.print("choix invalide\n");
                                 }
                             }
                         }
@@ -82,7 +82,7 @@ public class main {
                             choix = false;
                         }
                         else{
-                                System.out.print("choix invalide");
+                                System.out.print("choix invalide\n");
                             }
                     }
 
@@ -144,13 +144,13 @@ public class main {
                             choix = false;
                         }
                         else{
-                            System.out.println("choix invalide");
+                            System.out.println("choix invalide\n");
                         }
                     }
                 }
                     break;
                 default:
-                System.out.print("choix invalide");
+                System.out.print("choix invalide\n");
                 break;
 
                 }
@@ -163,7 +163,7 @@ public class main {
                 choix=false;
             }
             else {
-                System.out.println("choix invalide");
+                System.out.println("choix invalide\n");
             }
         }
     }
