@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         //jeu des Allumette
+
         String[] joueurs = new String[2];
         int nbTours = 0;
         byte retrait;
@@ -13,9 +14,12 @@ public class main {
         boolean choix = true;
         boolean jouer= true;
         byte choix1 = 0;
+        String joueur0 = " ";
+        String joueur1 = " ";
+        int nbAllumette = (int) (Math.random() * 80) + 20;
         Scanner sc = new Scanner(System.in);
-
         while(jouer){
+            continuer=true;
         System.out.println("Quel est le mode de jeu?\n1- Joueur  VS Joueur\n2- Joueur  VS Ordinnateur ");
         choix1 = sc.nextByte();
 
@@ -26,9 +30,9 @@ public class main {
                 System.out.println(" Joueur 2, quel est votre nom?");
                 joueurs[1] =sc.next();
                 while (continuer) {
-                    int nbAllumette = (int) (Math.random() * 80) + 20;
-                    String joueur0 = " ";
-                    String joueur1 = " ";
+                    nbAllumette = (int) (Math.random() * 80) + 20;
+                    joueur0 = " ";
+                    joueur1 = " ";
                     byte premier = (byte) (Math.random() * 2);
                     while (nbAllumette > 0) {
                         if (nbTours == 0) {
@@ -91,11 +95,12 @@ public class main {
             case 2:
                 System.out.println(" Joueur 1, quel est votre nom?");
                 joueurs[0] = sc.next();
+                joueurs[1] = "THE BOSS";
                 continuer = true;
                 while (continuer) {
-                    int nbAllumette = (int) (Math.random() * 80) + 20;
-                    String joueur0 = " ";
-                    String joueur1 = " ";
+                    nbAllumette = (int) (Math.random() * 80) + 20;
+                    joueur0 = " ";
+                    joueur1 = " ";
                     byte premier = (byte) (Math.random() * 2);
                     while (nbAllumette > 0) {
                         if (nbTours == 0) {
@@ -118,15 +123,25 @@ public class main {
                             if((nbAllumette-2)%4 == 0){
                                 nbAllumette= nbAllumette-1;
                                 --nbTours;
+                                joueur1 += "1, ";
+
                             }
                             else if((nbAllumette-3)%4 == 0) {
                                 nbAllumette = nbAllumette-2;
                                 --nbTours;
+                                joueur1 += "2, ";
                             }
                             else if((nbAllumette-4)%4 == 0) {
                                 nbAllumette = nbAllumette-3;
                                 --nbTours;
+                                joueur1 += "3, ";
                             }
+                            else{
+                                nbAllumette = nbAllumette-3;
+                                --nbTours;
+                                joueur1 += "3, ";
+                            }
+
                         }
                     }
                     System.out.println(joueurs[nbTours % 2] + " gagne la partie!, \n Résumé de la partie (coups jouées dans l'ordre...)");
@@ -154,13 +169,16 @@ public class main {
                 break;
 
                 }
+                choix=true;
+                while(choix){
                 System.out.print("voulez-vous quitter le programe?\n 1- Oui\n 2- Non");
             nbTours = sc.nextInt();
             if (nbTours == 2) {
-                jouer = false;
+                choix=false;
             }
             else if(nbTours == 1) {
                 choix=false;
+                jouer = false;
             }
             else {
                 System.out.println("choix invalide\n");
@@ -168,5 +186,6 @@ public class main {
         }
     }
     }
+}
 
 
