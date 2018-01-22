@@ -11,9 +11,11 @@ public class main {
         byte retrait;
         boolean continuer = true;
         boolean choix = true;
+        boolean jouer= true;
         byte choix1 = 0;
         Scanner sc = new Scanner(System.in);
 
+        while(jouer){
         System.out.println("Quel est le mode de jeu?\n1- Joueur  VS Joueur\n2- Joueur  VS Ordinnateur ");
         choix1 = sc.nextByte();
 
@@ -70,14 +72,18 @@ public class main {
                     System.out.println(joueurs[1] + " :" + joueur1);
                     choix = true;
                     while (choix) {
-                        System.out.println("voulez vous continuer à jouer? \n 1- Oui\n 2- Non");
+                        System.out.println("voulez vous continuer à jouer? \n 1- Oui\n 2- Non, je veux changer de mode");
                         nbTours = sc.nextInt();
                         if (nbTours == 2) {
                             continuer = false;
                             choix = false;
-                        } else if (nbTours == 1) {
+                        }
+                        else if (nbTours == 1) {
                             choix = false;
                         }
+                        else{
+                                System.out.print("choix invalide");
+                            }
                     }
 
                 }
@@ -128,23 +134,39 @@ public class main {
                     System.out.println(joueurs[1] + " :" + joueur1);
                     choix = true;
                     while (choix) {
-                        System.out.println("voulez vous continuer à jouer? \n 1- Oui\n 2- Non");
+                        System.out.println("voulez vous continuer à jouer? \n 1- Oui\n 2- Non, je veux changer de mode");
                         nbTours = sc.nextInt();
                         if (nbTours == 2) {
                             continuer = false;
                             choix = false;
-                        } else if (nbTours == 1) {
+                        }
+                        else if(nbTours == 1) {
                             choix = false;
                         }
+                        else{
+                            System.out.println("choix invalide");
+                        }
                     }
-
                 }
-                break;
-            default:
+                    break;
+                default:
                 System.out.print("choix invalide");
                 break;
 
+                }
+                System.out.print("voulez-vous quitter le programe?\n 1- Oui\n 2- Non");
+            nbTours = sc.nextInt();
+            if (nbTours == 2) {
+                jouer = false;
+            }
+            else if(nbTours == 1) {
+                choix=false;
+            }
+            else {
+                System.out.println("choix invalide");
+            }
         }
     }
-}
+    }
+
 
